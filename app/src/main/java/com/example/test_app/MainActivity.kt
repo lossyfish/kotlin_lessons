@@ -21,14 +21,20 @@ class MainActivity : AppCompatActivity() {
             in 0..200 -> {
                 binding.textView2.visibility = View.VISIBLE
                 binding.textView2.text = "You are a bad streamer"
+                binding.imageView.visibility = View.VISIBLE
+                binding.imageView.setImageResource(R.drawable.img2)
             }
             in 201..500 -> {
                 binding.textView2.visibility = View.VISIBLE
                 binding.textView2.text = "You are a good streamer"
+                binding.imageView.visibility = View.VISIBLE
+                binding.imageView.setImageResource(R.drawable.img1)
             }
             else -> {
                 binding.textView2.visibility = View.VISIBLE
                 binding.textView2.text = "You are a super star"
+                binding.imageView.visibility = View.VISIBLE
+                binding.imageView.setImageResource(R.drawable.img3)
             }
             }
         }
