@@ -1,5 +1,6 @@
 package com.example.test_app
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,35 +9,17 @@ import com.example.test_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
+    private lateinit var binding:ActivityMainBinding // В переменную binding кладем лейаут активитиМейн
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button1.setOnClickListener {
-
-            when(binding.editText.text.toString().toInt()){
-            in 0..200 -> {
-                binding.textView2.visibility = View.VISIBLE
-                binding.textView2.text = "You are a bad streamer"
-                binding.imageView.visibility = View.VISIBLE
-                binding.imageView.setImageResource(R.drawable.img2)
-            }
-            in 201..500 -> {
-                binding.textView2.visibility = View.VISIBLE
-                binding.textView2.text = "You are a good streamer"
-                binding.imageView.visibility = View.VISIBLE
-                binding.imageView.setImageResource(R.drawable.img1)
-            }
-            else -> {
-                binding.textView2.visibility = View.VISIBLE
-                binding.textView2.text = "You are a super star"
-                binding.imageView.visibility = View.VISIBLE
-                binding.imageView.setImageResource(R.drawable.img3)
-            }
-            }
+        binding.btn1.setOnClickListener {
+            val intent = Intent(this, WindowTest::class.java)
+            startActivity(intent)
         }
     }
 }
